@@ -1,0 +1,33 @@
+docker run -d --name rabbit-name-management -p 15672:15672 -p 5672:5672 -p 5671:5671 -p 4369:4369 rabbitmq:3-management 
+
+docker ps
+docker stop <container ID>
+docker ps -a
+docker start <container ID>
+docker rm <container ID>
+docker images
+docker rmi <image ID> -f
+
+docker build --tag=config-server --force-rm=true .
+
+docker login --username=matish
+docker images
+docker tag <image ID> <docker username>/<docker repo>
+docker push <docker username>/<docker repo>
+docker inspect <container ID>
+docker run -d -p 8012:8012 -e "spring.rabbitmq.host=172.17.0.2" <docker username>/<docker repo>
+docker run -d -p 8010:8010 -e "spring.cloud.config.uri=http://<IP>:8012" <docker username>/<docker repo>
+docker run -d -v esdata1:/usr/share/elasticsearch/data --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.2.0
+
+docker network create --driver bridge api-network
+docker network ls
+docker run -d -v esdata1:/usr/share/elasticsearch/data --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --network api-network elasticsearch:7.2.0
+docker run -d --network api-network -p 5601:5601 kibana:7.3.0
+docker run -d -e "eureka.client.serviceUrl.defaultZone=http://test:test@<IP>:<PORT>/eureka" -e "logging.file=/api-logs/albums-ws.log" -v /home/ec2-user/api-logs:/api-logs -e "server.port=8989" -p 8989:8989 <docker username>/<docker repo>
+docker run -d -e "eureka.client.serviceUrl.defaultZone=http://test:test@<IP>:<PORT>/eureka" -e "logging.file=/api-logs/albums-ws.log" -v /home/ec2-user/api-logs:/api-logs --network host <docker username>/<docker repo>
+docker exec -it <Container ID> ls api-logs/
+
+mvn spring-boot.run -Dspring-boot.run.arguments=--spring.profiles.active=production
+
+docker run -d -e "spring.profiles.active=production" <docker username>/<docker repo>
+	

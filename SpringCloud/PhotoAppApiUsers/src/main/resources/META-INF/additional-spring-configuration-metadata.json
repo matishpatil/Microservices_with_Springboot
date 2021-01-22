@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "feign.hystrix.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'feign.hystrix.enabled'"
+  },
+  {
+    "name": "spring.zipkin.sender.type",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.zipkin.sender.type'"
+  },
+  {
+    "name": "login.url.path",
+    "type": "java.lang.String",
+    "description": "A description for 'login.url.path'"
+  },
+  {
+    "name": "gateway.ip",
+    "type": "java.lang.String",
+    "description": "A description for 'gateway.ip'"
+  },
+  {
+    "name": "token.expiration_time",
+    "type": "java.lang.String",
+    "description": "A description for 'token.expiration_time'"
+  },
+  {
+    "name": "token.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'token.secret'"
+  },
+  {
+    "name": "spring.sleuth.sampler.probability",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sleuth.sampler.probability'"
+  }
+]}
