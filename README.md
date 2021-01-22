@@ -1,5 +1,5 @@
 # Microservices_with_Springboot
-The project is using the following services:
+The Spring Cloud project is using the following services:
 1. Eureka Discovery Service
 2. Spring Cloud API Gateway
 3. Spring Security
